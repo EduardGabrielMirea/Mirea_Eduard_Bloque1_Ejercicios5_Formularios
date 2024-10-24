@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Foco automático en el campo "nombre"
-    document.getElementById("nombre").focus();
+    var nombre = document.getElementById("nombre");
+    nombre.focus();
 
     // Manejador del formulario
     document.getElementById('miFormulario').addEventListener('submit', function(event) {
