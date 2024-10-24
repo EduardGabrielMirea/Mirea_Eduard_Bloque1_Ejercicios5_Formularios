@@ -1,9 +1,18 @@
-// Función que se ejecuta cuando la página carga para enfocar en el campo de nombre
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Foco automático en el campo "nombre"
     document.getElementById("nombre").focus();
-};
 
-// Función para manejar el evento onchange de la lista de aficiones
+    // Manejador del formulario
+    document.getElementById('miFormulario').addEventListener('submit', function(event) {
+        if (!validarFormulario()) {
+            event.preventDefault(); // Detiene el envío si el formulario no es válido
+        }
+    });
+
+    // Manejador de cambio en la lista de aficiones
+    document.getElementById('aficiones').addEventListener('change', mostrarInfoAficion);
+});
+
 function mostrarInfoAficion() {
     var lista = document.getElementById("aficiones");
     var indiceSeleccionado = lista.selectedIndex;
@@ -15,7 +24,6 @@ function mostrarInfoAficion() {
         "\nEl valor del índice seleccionado es " + valorSeleccionado);
 }
 
-// Validación del formulario antes de enviar
 function validarFormulario() {
     var dni = document.getElementById("dni").value;
     var telefono = document.getElementById("telefono").value;
@@ -33,6 +41,5 @@ function validarFormulario() {
         return false;
     }
 
-    // Si todo está correcto
-    return true;
+    return true; // Si todo es válido
 }
