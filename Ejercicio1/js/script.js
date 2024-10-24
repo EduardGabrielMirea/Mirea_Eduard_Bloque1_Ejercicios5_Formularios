@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var nombre = document.getElementById("nombre");
     nombre.focus();
 
+
+
     // Manejador del formulario
     document.getElementById('miFormulario').addEventListener('submit', function(event) {
         if (!validarFormulario()) {
